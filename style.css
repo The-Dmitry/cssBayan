@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  padding: 10px;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 750px;
+}
+.meme {
+  display: flex;
+  height: fit-content;
+  flex-direction: column;
+  padding: 10px 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  transition: all linear 1s;
+  color: #3396ff;
+
+}
+
+
+
+.meme__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 0.6rem;
+}
+
+.meme__title {
+  position: relative;
+  font-size: 2rem;
+  padding: 10px 0;
+  transition: color linear .3s;
+}
+
+.cross {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: url(./images/cross.svg);
+  opacity: 1;
+  transition: opacity linear .3s;
+}
+
+.meme__input {
+  width: 0;
+  height: 0;
+}
+.meme__image-container {
+  position: relative;
+  transition: all linear .4s;
+  padding-bottom: 0%;
+  opacity: 0;
+}
+.meme__image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  border-radius: 17%;
+  object-fit: contain;
+  transform: translate(-50%, 0);
+}
+
+
+.meme__input:checked + .meme__label >  .meme__image-container {
+  padding-bottom: 100%;
+  opacity: 1;
+}
+
+.meme__input:checked + .meme__label {
+  color: black;
+}
+
+.meme__input:checked + .meme__label >  .meme__image-container {
+    padding-bottom: 100%;
+    opacity: 1;
+  }
+
+
+.meme__input:checked + .meme__label .meme__info .cross {
+  transform: rotate(45deg)
+}
+
+
+
+
+
+
+@media (min-width: 510px) {
+  
+  .meme {
+    cursor: pointer;
+  }
+  .meme:hover > .meme__label .meme__info .cross {
+    transform: rotate(45deg)
+  }
+
+  .meme__label {
+    cursor: pointer;
+  }
+
+  .cross {
+    opacity: 0;
+  }
+  
+  .container:hover .meme__label {
+    color: black;
+  }
+  .container:hover .meme__label .meme__info .cross {
+    opacity: 1;
+  }
+
+
+  .meme__input:checked + .meme__label >  .meme__image-container {
+    padding-bottom: 58%;
+    opacity: 1;
+  }
+
+  .meme:hover .meme__label >  .meme__image-container {
+    padding-bottom: 58%;
+    opacity: 1;
+  }
+
+
+}
+
