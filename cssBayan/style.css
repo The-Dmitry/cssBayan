@@ -20,17 +20,18 @@ body {
 }
 .meme {
   display: flex;
-  height: fit-content;
   flex-direction: column;
+  height: auto;
   padding: 10px 0;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   transition: all linear 1s;
   color: #3396ff;
-
 }
 
-
+.meme__label {
+  height: auto;
+}
 
 .meme__info {
   display: flex;
@@ -40,7 +41,6 @@ body {
 }
 
 .meme__title {
-  position: relative;
   font-size: 2rem;
   padding: 10px 0;
   transition: color linear .3s;
@@ -58,26 +58,22 @@ body {
   width: 0;
   height: 0;
 }
-.meme__image-container {
+/* .meme__image-container {
   position: relative;
   transition: all linear .4s;
   padding-bottom: 0%;
   opacity: 0;
-}
+} */
 .meme__image {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  height: 100%;
+  height: 0;
   width: 100%;
   border-radius: 17%;
-  object-fit: contain;
-  transform: translate(-50%, 0);
+  transition: all linear .3s;
 }
 
 
-.meme__input:checked + .meme__label >  .meme__image-container {
-  padding-bottom: 100%;
+.meme__input:checked + .meme__label >  .meme__image {
+  height: 100%;
   opacity: 1;
 }
 
@@ -85,10 +81,9 @@ body {
   color: black;
 }
 
-.meme__input:checked + .meme__label >  .meme__image-container {
-    padding-bottom: 100%;
-    opacity: 1;
-  }
+.meme__input:checked + .meme__label >  .meme__image {
+  opacity: 1;
+}
 
 
 .meme__input:checked + .meme__label .meme__info .cross {
@@ -126,12 +121,10 @@ body {
 
 
   .meme__input:checked + .meme__label >  .meme__image-container {
-    padding-bottom: 58%;
     opacity: 1;
   }
 
   .meme:hover .meme__label >  .meme__image-container {
-    padding-bottom: 58%;
     opacity: 1;
   }
 
