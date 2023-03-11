@@ -4,24 +4,38 @@
   list-style: none;
 }
 
+@font-face {
+  font-family: 'Nutella Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Nutella Bold'), url('./fonts/nutella_by_lyricwest_dd2f4g6.otf.woff') format('woff');
+}
+
 html {
+  font-family: 'Nutella Bold';
 }
 
 body {
 }
 
 .container {
+  box-sizing: border-box;
   height: 100vh;
   width: 100%;
   margin: 0 auto;
   max-width: 51.3rem;
-  padding: 0.8rem;
+  padding: 0 0.8rem;
+  font-size: 1.2rem;
 }
+
+.main-title {
+  text-align: center;
+}
+
 .meme {
   display: flex;
   flex-direction: column;
   height: auto;
-  padding: 10px 0;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   transition: all linear 1s;
@@ -42,7 +56,6 @@ body {
 }
 
 .meme__title {
-  font-size: 2rem;
   padding: 10px 0;
   transition: color linear .3s;
 }
@@ -62,7 +75,6 @@ body {
 
 .meme__image {
   align-self: center;
-  /* width: 0; */
   width: 100%;
   max-width: 0;
   max-height: 0;
@@ -75,6 +87,7 @@ body {
 .meme__input:checked + .meme__label >  .meme__image {
   max-height: 30rem;
   max-width: 30rem;
+  padding-bottom: 1.1rem;
   opacity: 1;
 }
 
@@ -94,13 +107,19 @@ body {
 
 @media (min-width: 510px) {
   
-
+  .container {
+    font-size: 1.5rem;
+  }
   
 
 
 }
 
 @media (min-width: 820px) {
+
+  .container {
+    font-size: 1.8rem;
+  }
 
   .meme {
     cursor: pointer;
@@ -122,12 +141,19 @@ body {
     opacity: 1;
   }
 
-  .meme:hover .meme__label >  .meme__image {
+  .meme:hover .meme__label > .meme__image {
     max-height: 30rem;
     max-width: 30rem;
     width: 100%;
+    padding-bottom: 1.1rem;
     opacity: 1;
   }
+
+  .meme:hover .meme__label .meme__info .cross {
+    transform: rotate(45deg)
+  }
+
+  
 
 
 }
